@@ -6,5 +6,5 @@
   * [介绍](ru-men/jie-shao.md)
   * 概述
   * 支持
-  * 工具
+  * [工具](ru-men/gong-ju.md)
 
