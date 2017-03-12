@@ -3,7 +3,7 @@
 * [Introduction](README.md)
 * [First Chapter](chapter1.md)
 * [入门](ru-men.md)
-  * 介绍
+  * [介绍](ru-men/jie-shao.md)
   * 概述
   * 支持
   * 工具
