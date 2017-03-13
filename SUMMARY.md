@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [First Chapter](chapter1.md)
-* [入门](ru-men.md)
+* [入门]()
   * [介绍](ru-men/jie-shao.md)
   * [概述](ru-men/gai-shu.md)
   * [支持](ru-men/zhi-chi.md)
