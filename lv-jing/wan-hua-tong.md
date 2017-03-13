@@ -8,7 +8,7 @@
 
 ![](images/kaleidoscope.png)  
 
-说明：滑动控制以调整万花筒角度。
+说明：滑动控制以调整万花筒角度。  
 Konva Kaleidoscope Image Demo [点击查看](https://konvajs.github.io/downloads/code/filters/Kaleidoscope.html)  
 
 

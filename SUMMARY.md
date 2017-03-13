@@ -51,7 +51,32 @@
   *  [事件委托](shi-jian/shi-jian-wei-tuo.md)
   *  [事件触发](shi-jian/shi-jian-chu-fa.md)
   *  [舞台事件](shi-jian/wu-tai-shi-jian.md)
+* 拖放
+  *  [拖放](tuo-fang/tuo-fang.md)
+  *  [拖放-图片](tuo-fang/tuo-fang-tu-pian.md)
+  *  [拖放-组](tuo-fang/tuo-fang-zu.md)
+  *  [拖放-线](tuo-fang/tuo-fang-xian.md)
+  *  [拖放-舞台](tuo-fang/tuo-fang-wu-tai.md)
+  *  [拖放-事件](tuo-fang/tuo-fang-shi-jian.md)
+  *  [拖放-简单](tuo-fang/jian-dan-tuo-fang.md)
+  *  [拖放-复制](tuo-fang/fu-za-tuo-fang.md)
+  *  [放下事件](tuo-fang/fang-xia-shi-jian.md)
+* 裁剪
+  *  [简单-裁剪](cai-jian/jian-dan-cai-jian.md)
+  *  [复杂-裁剪](cai-jian/fu-za-cai-jian.md)
+* 组和层
+  *  [组](zu-he-cheng/zu.md)
+  *  [层](zu-he-cheng/ceng.md)
+  *  [更改容器](zu-he-cheng/geng-gai-rong-qi.md)
+* 滤镜
+  *  [RGBA](lv-jing/RGBA.md)
+  *  [反色](lv-jing/fan-se.md)
+  *  [灰度](lv-jing/hui-du.md)
+  *  [亮度](lv-jing/liang-du.md)
+  *  [万花筒](lv-jing/wan-hua-tong.md)
+  *  [模糊度](lv-jing/mo-hu-du.md)
+  *  [混合滤镜](lv-jing/hun-he-lv-jing.md)
 
- 
-  
+
+
 
