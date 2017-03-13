@@ -30,7 +30,12 @@
   *  [箭头](tu-xing/箭头.md)
   *  [自定义](tu-xing/自定义形状.md)
 * 样式
-  *  [自定义](tu-xing/自定义形状.md)
+  *  [填充](yang-shi/填充.md)
+  *  [绘制](yang-shi/绘制.md)
+  *  [不透明度](yang-shi/透明度.md)
+  *  [阴影](yang-shi/阴影.md)
+  *  [线-夹角](yang-shi/线连接.md)
+  *  [显示/隐藏](yang-shi/显示和隐藏.md)
 
 
  
