@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.rawgit.com/konvajs/konva/1.4.0/konva.min.js"></script>
+  <meta charset="utf-8">
+  <title>Konva All Controls Demo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #F0F0F0;
+    }
+    #buttons {
+        position: absolute;
+        top: 5px;
+        left: 10px;
+    }
+    #buttons > input {
+        padding: 10px;
+        display: inline-block;
+        margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <div id="buttons">
+      <input type="button" id="play" value="Play">
+      <input type="button" id="pause" value="Pause">
+      <input type="button" id="reverse" value="Reverse">
+      <input type="button" id="reset" value="Reset">
+      <input type="button" id="seek" value="Seek 3">
+      <input type="button" id="finish" value="Finish">
+
+  </div>
+  <script>
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    
+    var stage = new Konva.Stage({
+      container: 'container',
+      width: width,
+      height: height
+    });
+
+    var layer = new Konva.Layer();
+
+    var rect = new Konva.Rect({
+        x: 50,
+        y: 130,
+        width: 100,
+        height: 50,
+        fill: 'green',
+        stroke: 'black',
+        strokeWidth: 2,
+        opacity: 0.2
+    });
+
+    layer.add(rect);
+    stage.add(layer);
+
+    // the tween has to be created after the node has been added to the layer
+    var tween = new Konva.Tween({
+        node: rect,
+        duration: 6,
+        x: 220,
+        y: 75,
+        rotation: Math.PI * 10,
+        opacity: 1,
+        strokeWidth: 6,
+        scaleX: 1.3,
+        scaleY: 1.3,
+        easing: Konva.Easings.Linear,
+        fillR: 0,
+        fillG: 0,
+        fillB: 255
+    });
+
+    // pause tween
+    document.getElementById('pause').addEventListener('click', function() {
+        tween.pause();
+    }, false);
+
+    // reverse tween
+    document.getElementById('reverse').addEventListener('click', function() {
+        tween.reverse();
+    }, false);
+
+    // play tween forward
+    document.getElementById('play').addEventListener('click', function() {
+        tween.play();
+    }, false);
+
+    // reset tween
+    document.getElementById('reset').addEventListener('click', function() {
+        tween.reset();
+    }, false);
+
+    // force tween to finish
+    document.getElementById('finish').addEventListener('click', function() {
+        tween.finish();
+    }, false);
+
+    // seek to 3 seconds
+    document.getElementById('seek').addEventListener('click', function() {
+        tween.seek(3);
+    }, false);
+  </script>
+
+</body>
+</html>

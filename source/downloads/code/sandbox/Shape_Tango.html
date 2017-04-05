@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.rawgit.com/konvajs/konva/1.4.0/konva.min.js"></script>
+  <meta charset="utf-8">
+  <title>Konva Shape Tango Demo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #F0F0F0;
+    }
+    #tango {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <input type="button" id="tango" value="Tango!">
+  <script>
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+
+    var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
+
+    function getRandomColor() {
+        return colors[Math.round(Math.random() * 5)];
+    }
+
+    function tango(layer) {
+        for(var n = 0; n < layer.getChildren().length; n++) {
+            var color = getRandomColor();
+            var shape = layer.getChildren()[n];
+            var stage = shape.getStage();
+            var radius = Math.random() * 100 + 20;
+
+            new Konva.Tween({
+                node: shape,
+                duration: 1,
+                x: Math.random() * stage.width(),
+                y: Math.random() * stage.height(),
+                rotation: Math.random() * 360,
+                radius: radius,
+                opacity: (radius - 20) / 100,
+                easing: Konva.Easings.EaseInOut,
+                fill: color
+            }).play();
+        }
+    }
+    var stage = new Konva.Stage({
+        container: 'container',
+        width: width,
+        height: height
+    });
+
+    var layer = new Konva.Layer();
+
+    for(var n = 0; n < 10; n++) {
+        var radius = Math.random() * 100 + 20;
+        var color = getRandomColor();
+        var shape = new Konva.RegularPolygon({
+            x: Math.random() * stage.getWidth(),
+            y: Math.random() * stage.getHeight(),
+            sides: Math.ceil(Math.random() * 5 + 3),
+            radius: radius,
+            fill: color,
+            opacity: (radius - 20) / 100,
+            draggable: true
+        });
+
+        layer.add(shape);
+    }
+
+    stage.add(layer);
+
+    document.getElementById('tango').addEventListener('click', function() {
+        tango(layer);
+    }, false);
+  </script>
+
+</body>
+</html>

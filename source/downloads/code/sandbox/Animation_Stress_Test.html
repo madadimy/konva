@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.rawgit.com/konvajs/konva/1.4.0/konva.min.js"></script>
+  <meta charset="utf-8">
+  <title>Konva Animation Stress Test Demo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #F0F0F0;
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <script>
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+
+    function update(layer, frame) {
+        var angularSpeed = 100;
+        var angularDiff = angularSpeed * frame.timeDiff / 1000;
+        var shapes = layer.getChildren();
+
+        for(var n = 0; n < shapes.length; n++) {
+            var shape = shapes[n];
+            shape.rotate(angularDiff);
+        }
+    }
+
+    var stage = new Konva.Stage({
+        container: 'container',
+        width: width,
+        height: height
+    });
+
+    /*
+    * setting the hitGraphEnabled property to false will improve
+    * drawing performance because the rectangles won't have to be
+    * drawn onto the hit graph
+    */
+    var layer = new Konva.Layer({
+        hitGraphEnabled : false
+    });
+    var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'cyan', 'purple'];
+    var colorIndex = 0;
+
+    for(var i = 0; i < 300; i++) {
+        var color = colors[colorIndex++];
+        if(colorIndex >= colors.length) {
+            colorIndex = 0;
+        }
+
+        var randWidth = Math.random() * 100 + 20;
+        var randHeight = Math.random() * 100 + 20;
+        var randX = Math.random() * stage.getWidth() - 20;
+        var randY = Math.random() * stage.getHeight() - 20;
+
+        var box = new Konva.Rect({
+            x: randX,
+            y: randY,
+            offset: {
+                x: randWidth / 2,
+                y: randHeight / 2
+            },
+            width: randWidth,
+            height: randHeight,
+            fill: color,
+            stroke: 'black',
+            strokeWidth: 4
+        });
+
+        layer.add(box);
+    }
+
+    stage.add(layer);
+
+    var anim = new Konva.Animation(function(frame) {
+        update(layer, frame);
+    }, layer);
+
+    anim.start();
+  </script>
+
+</body>
+</html>

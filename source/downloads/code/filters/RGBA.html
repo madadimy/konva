@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://rawgit.com/konvajs/konva/master/konva.js"></script>
+  <meta charset="utf-8">
+  <title>Konva RGBA Image Demo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #F0F0F0;
+    }
+    #controls {
+      position: absolute;
+      top: 20px;
+      left: 20px; 
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <div id="controls">
+    Red: <input id="red" type="range" min="0" max="256" step="1" value="150">
+    Green: <input id="green" type="range" min="0" max="256" step="1" value="150">
+    Blue: <input id="blue" type="range" min="0" max="256" step="1" value="150">
+    Alpha: <input id="alpha" type="range" min="0" max="1" step="0.05" value="0.5">
+  </div>
+  <script>
+    Konva.Image.fromURL('../../../assets/lion.png', function(lion) {
+      var stage = new Konva.Stage({
+        container: 'container',
+        width: 300,
+        height: 200
+      });
+
+      var layer = new Konva.Layer();
+
+      lion.position({
+        x: 50,
+        y: 50
+      });
+      lion.cache();
+      lion.filters([Konva.Filters.RGBA]);
+      layer.add(lion);
+      stage.add(layer);
+
+      var sliders = ['red', 'green', 'blue', 'alpha'];
+      sliders.forEach(function(attr) {
+          var slider = document.getElementById(attr); 
+          function update() {
+            lion[attr](parseFloat(slider.value));
+            layer.batchDraw();    
+          }
+          slider.oninput = update;
+          update();
+      });
+    });
+  </script>
+
+</body>
+</html>

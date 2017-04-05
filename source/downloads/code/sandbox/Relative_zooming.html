@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.rawgit.com/konvajs/konva/1.4.0/konva.min.js"></script>
+    <meta charset="utf-8">
+    <title>Konva Zoom Relative to Stage Demo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #F0F0F0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script>
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+
+        var stage = new Konva.Stage({
+            container: 'container',
+            width: width,
+            height: height
+        });
+
+        var layer = new Konva.Layer();
+        stage.add(layer);
+
+        layer.add(new Konva.Circle({
+            x: stage.width() / 2,
+            y: stage.height() / 2,
+            radius: 50,
+            fill: 'red'
+        }));
+
+        var circle = new Konva.Circle({
+            x: stage.width() / 2,
+            y: stage.height() / 2,
+            radius: 50,
+            fill: 'green'
+        });
+        layer.add(circle);
+
+        layer.draw();
+
+
+        var scaleBy = 1.01;
+        window.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            var oldScale = stage.scaleX();
+
+            var mousePointTo = {
+                x: stage.getPointerPosition().x / oldScale - stage.x() / oldScale,
+                y: stage.getPointerPosition().y / oldScale - stage.y() / oldScale,
+            };
+
+            var newScale = e.deltaY > 0 ? oldScale * scaleBy : oldScale / scaleBy;
+            stage.scale({ x: newScale, y: newScale });
+
+            var newPos = {
+                x: -(mousePointTo.x - stage.getPointerPosition().x / newScale) * newScale,
+                y: -(mousePointTo.y - stage.getPointerPosition().y / newScale) * newScale
+            };
+            stage.position(newPos);
+            stage.batchDraw();
+        });
+    </script>
+
+</body>
+
+</html>

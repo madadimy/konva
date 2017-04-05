@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.rawgit.com/konvajs/konva/1.4.0/konva.min.js"></script>
+  <meta charset="utf-8">
+  <title>Konva Expand Image on Hover Demo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #F0F0F0;
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <script>
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    
+    var stage = new Konva.Stage({
+      container: 'container',
+      width: width,
+      height: height
+    });
+
+    var layer = new Konva.Layer();
+    stage.add(layer);
+
+    // darth vader
+    var darthVaderImg = new Konva.Image({
+        x: 110,
+        y: 88,
+        width: 200,
+        height: 137,
+        offset : {
+            x : 100,
+            y : 68
+        },
+        draggable: true
+    });
+    layer.add(darthVaderImg);
+
+    // yoda
+    var yodaImg = new Konva.Image({
+        x: 290,
+        y: 70,
+        width: 93,
+        height: 104,
+        offset : {
+            x : 46,
+            y : 52
+        },
+        draggable: true
+    });
+    layer.add(yodaImg);
+
+
+    var imageObj1 = new Image();
+    imageObj1.onload = function() {
+        darthVaderImg.image(imageObj1);
+        layer.draw();
+    };
+    imageObj1.src = '/assets/darth-vader.jpg';
+
+    var imageObj2 = new Image();
+    imageObj2.onload = function() {
+        yodaImg.image(imageObj2);
+        layer.draw();
+    };
+    imageObj2.src = '/assets/yoda.jpg';
+
+
+    // use event delegation to update pointer style
+    // and apply borders
+    layer.on('mouseover', function(evt) {
+        var shape = evt.target;
+        document.body.style.cursor = 'pointer';
+        shape.scaleX(1.2);
+        shape.scaleY(1.2);
+        layer.draw();
+    });
+    layer.on('mouseout', function(evt) {
+        var shape = evt.target;
+        document.body.style.cursor = 'default';
+        shape.scaleX(1);
+        shape.scaleY(1);
+        layer.draw();
+    });
+  </script>
+
+</body>
+</html>

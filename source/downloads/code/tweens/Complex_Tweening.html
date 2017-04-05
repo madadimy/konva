@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.rawgit.com/konvajs/konva/1.4.0/konva.min.js"></script>
+  <script src="https://rawgit.com/konvajs/greensock-plugin/master/KonvaPlugin.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineLite.min.js"></script>
+  <script src="http://www.snorkl.tv/dev/libs/greensock/plugins/ColorPropsPlugin.min.js"></script>
+  <meta charset="utf-8">
+  <title>Konva Complex Tweening Demo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #F0F0F0;
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <script>
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    
+    var stage = new Konva.Stage({
+      container: 'container',
+      width: width,
+      height: height
+    });
+
+    var layer = new Konva.Layer();
+
+    var star = new Konva.Star({
+        x: 100,
+        y: 250,
+        numPoints: 5,
+        innerRadius: 40,
+        outerRadius:70,
+        fill:"red"
+    });
+
+    layer.add(star);
+    stage.add(layer);
+
+    var tl = new TimelineLite();
+
+    // plugin example
+    tl.to(star, 2, {
+        konva: {
+            x:300,
+            y:130,
+            innerRadius:15,
+            rotation:360
+        },
+        ease:Power4.easeOut
+    })
+            .to(star, 2, {
+                konva : {
+                    fill:"rgb(0,0,255)",
+                    scaleX: 1.5,
+                    scaleY : 1.5
+                }
+            })
+            .to(star, 1, {
+                konva: {
+                    fill: "#0F0",
+                    scaleX:3,
+                    scaleY:1,
+                    shadowOffsetX:10,
+                    shadowOffsetY:10,
+                    shadowBlur:10,
+                    shadowColor: "black",
+                    rotation: 0
+                }
+            });
+
+
+    var linearGradPentagon = new Konva.RegularPolygon({
+        x: 70,
+        y: 70,
+        sides: 5,
+        radius: 70,
+        fillLinearGradientStartPoint: {
+            x: -50,
+            y: -50
+        },
+        fillLinearGradientEndPoint: {
+            x: 50,
+            y: 50
+        },
+        fillLinearGradientColorStops: [0, 'red', 1, 'yellow'],
+        stroke: 'black',
+        strokeWidth: 4,
+        draggable: true
+    });
+
+    layer.add(linearGradPentagon);
+    linearGradPentagon.moveToBottom();
+
+
+    //activate ColorPropsPlugin
+    TweenPlugin.activate([ColorPropsPlugin]);
+
+    //object to store color values
+    var tmpColors = {
+        color0: 'white',
+        color1: 'black'
+    };
+
+
+    //tween the color values in myObject
+    TweenLite.to(tmpColors, 5, {
+        colorProps: {
+            color0: 'black',
+            color1: 'red'
+        },
+        yoyo: true,
+        repeat: 5,
+        ease:Linear.easeNone,
+        onUpdate: applyProps
+    });
+
+    //apply new color values to gradient css of target
+    function applyProps() {
+        linearGradPentagon.setAttrs({
+            fillLinearGradientColorStops: [0, tmpColors.color0, 1, tmpColors.color1]
+        });
+        layer.batchDraw();
+    }
+  </script>
+
+</body>
+</html>

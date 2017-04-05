@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.rawgit.com/konvajs/konva/1.4.0/konva.min.js"></script>
+  <meta charset="utf-8">
+  <title>Konva Finish Event Demo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #F0F0F0;
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <script>
+    function writeMessage(message) {
+      text.setText(message);
+      layer.draw();
+    }
+
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    
+    var stage = new Konva.Stage({
+      container: 'container',
+      width: width,
+      height: height
+    });
+
+    var layer = new Konva.Layer();
+
+    var text = new Konva.Text({
+        x: 10,
+        y: 10,
+        fontFamily: 'Calibri',
+        fontSize: 24,
+        text: '',
+        fill: 'black'
+    });
+
+    var wheel = new Konva.Star({
+        x: stage.getWidth() / 2,
+        y: stage.getHeight() / 2,
+        numPoints: 8,
+        outerRadius: 70,
+        innerRadius: 50,
+        fill: 'purple',
+        stroke: 'black',
+        strokeWidth: 5,
+        lineJoin: 'bevel'
+    });
+
+    layer.add(wheel);
+    layer.add(text);
+    stage.add(layer);
+
+    // the tween has to be created after the node has been added to the layer
+    var tween = new Konva.Tween({
+        node: wheel,
+        duration: 4,
+        rotation: 360,
+        easing: Konva.Easings.BackEaseOut,
+        onFinish: function() {
+            writeMessage('tween finished!');
+        }
+    });
+
+    setTimeout(function() {
+        tween.play();
+    }, 1000);
+  </script>
+
+</body>
+</html>

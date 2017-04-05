@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.rawgit.com/konvajs/konva/1.4.0/konva.min.js"></script>
+  <meta charset="utf-8">
+  <title>Konva Kaleidoscope Image Demo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #F0F0F0;
+    }
+    #slider {
+      position: absolute;
+      top: 20px;
+      left: 20px; 
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <input id="slider" type="range" min="0" max="360" step="5" value="20">
+  <script>
+    function loadImages(sources, callback) {
+      var images = {};
+      var loadedImages = 0;
+      var numImages = 0;
+      for(var src in sources) {
+        numImages++;
+      }
+      for(var src in sources) {
+        images[src] = new Image();
+        images[src].onload = function() {
+          if(++loadedImages >= numImages) {
+            callback(images);
+          }
+        };
+        images[src].src = sources[src];
+      }
+    }
+    function buildStage(images) {
+      var stage = new Konva.Stage({
+        container: 'container',
+        width: 300,
+        height: 200
+      });
+
+      var layer = new Konva.Layer();
+
+      var lion = new Konva.Image({
+        image: images.lion,
+        x: 80,
+        y: 30,
+        draggable: true
+      });
+
+      lion.cache();
+      lion.filters([Konva.Filters.Kaleidoscope]);
+      lion.kaleidoscopePower(3);
+      layer.add(lion);
+      stage.add(layer);
+      var slider = document.getElementById('slider'); 
+      slider.onchange = function() {
+        lion.kaleidoscopeAngle(slider.value);
+        layer.batchDraw();    
+      };
+    }
+
+    var sources = {
+      lion: '/assets/lion.png'
+    };
+
+    loadImages(sources, buildStage);
+  </script>
+
+</body>
+</html>

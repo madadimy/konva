@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.rawgit.com/konvajs/konva/1.4.0/konva.min.js"></script>
+  <meta charset="utf-8">
+  <title>Konva Shape Tooltips Demo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #F0F0F0;
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <script>
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    
+    var stage = new Konva.Stage({
+      container: 'container',
+      width: width,
+      height: height
+    });
+
+    var shapesLayer = new Konva.Layer();
+    var tooltipLayer = new Konva.Layer();
+
+    var triangle = new Konva.Shape({
+        stroke : 'black',
+        fill : '#00D2FF',
+        strokeWidth : 1,
+        sceneFunc: function(context){
+            context.beginPath();
+            context.moveTo(120, 50);
+            context.lineTo(250, 80);
+            context.lineTo(150, 170);
+            context.closePath();
+            context.fillStrokeShape(this);
+        }
+    });
+
+    triangle.on("mousemove", function(){
+        var mousePos = stage.getPointerPosition();
+        tooltip.position({
+            x : mousePos.x + 5,
+            y : mousePos.y + 5
+        });
+        tooltip.text("Cyan Triangle");
+        tooltip.show();
+        tooltipLayer.batchDraw();
+    });
+
+    triangle.on("mouseout", function(){
+        tooltip.hide();
+        tooltipLayer.draw();
+    });
+
+    shapesLayer.add(triangle);
+
+    var circle = new Konva.Circle({
+        x: 250,
+        y: stage.height() / 2,
+        fill: "red",
+        stroke: "black",
+        strokeWidth: 4,
+        radius: 70
+    });
+
+    circle.on("mousemove", function(){
+        var mousePos = stage.getPointerPosition();
+        tooltip.position({
+            x : mousePos.x + 5,
+            y : mousePos.y + 5
+        });
+        tooltip.text("Red Circle");
+        tooltip.show();
+        tooltipLayer.batchDraw();
+    });
+
+    circle.on("mouseout", function(){
+        tooltip.hide();
+        tooltipLayer.draw();
+    });
+
+    shapesLayer.add(circle);
+
+    var tooltip = new Konva.Text({
+        text: "",
+        fontFamily: "Calibri",
+        fontSize: 12,
+        padding: 5,
+        textFill: "white",
+        fill: "black",
+        alpha: 0.75,
+        visible: false
+    });
+
+
+    tooltipLayer.add(tooltip);
+
+    stage.add(shapesLayer);
+    stage.add(tooltipLayer);
+  </script>
+
+</body>
+</html>

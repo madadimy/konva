@@ -1,0 +1,147 @@
+﻿menu:
+  教程: /docs/
+  演示: /docs/sandbox
+  API 文档: /api/Konva.html
+  支持: /docs/support.html
+
+doc_sidebar:
+  入门:
+    介绍: index.html
+    概述: overview.html
+    支持: support.html
+    工具: tools.html
+  图形:
+    矩形 : shapes/Rect.html
+    圆形 : shapes/Circle.html
+    椭圆 : shapes/Ellipse.html
+    扇形 : shapes/Wedge.html
+    线-简单线条 : shapes/Line_-_Simple_Line.html
+    线-多边形 : shapes/Line_-_Polygon.html
+    线-曲线(样条) : shapes/Line_-_Spline.html
+    线-不规则图形 : shapes/Line_-_Blob.html
+    精灵图 : shapes/Sprite.html
+    图片 : shapes/Image.html
+    文本 : shapes/Text.html
+    文本路径 : shapes/TextPath.html
+    星形 : shapes/Star.html
+    环形 : shapes/Ring.html
+    弧形 : shapes/Arc.html
+    标签 : shapes/Label.html
+    路径(SVG) : shapes/Path.html
+    正多边形 : shapes/RegularPolygon.html
+    箭头 : shapes/Arrow.html
+    自定义 : shapes/Custom.html
+  样式:
+    填充 : styling/Fill.html
+    绘制 : styling/Stroke.html
+    不透明度 : styling/Opacity.html
+    阴影 : styling/Shadow.html
+    折角 : styling/Line_Join.html
+    显示/隐藏 : styling/Hide_and_Show.html
+  事件:
+    绑定事件 : events/Binding_Events.html
+    图片事件 : events/Image_Events.html
+    移动端事件 : events/Mobile_Events.html
+    移动端滚动: events/Mobile_Scrolling.html
+    多个事件 : events/Multi_Event.html
+    PC端和移动端 : events/Desktop_and_Mobile.html
+    删除事件 : events/Remove_Event.html
+    通过名字删除 : events/Remove_by_Name.html
+    自定义命中空间 : events/Custom_Hit_Region.html
+    监听设置 : events/Listen_for_Events.html
+    阻止冒泡 : events/Cancel_Propagation.html
+    事件委托 : events/Event_Delegation.html
+    事件触发 : events/Fire_Events.html
+    舞台事件 : events/Stage_Events.html
+  拖放:
+    拖放 : drag_and_drop/Drag_and_Drop.html
+    拖动图片 : drag_and_drop/Drag_an_Image.html
+    拖动组 : drag_and_drop/Drag_a_Group.html
+    拖动线 : drag_and_drop/Drag_a_Line.html
+    拖动舞台 : drag_and_drop/Drag_a_Stage.html
+    拖动事件 : drag_and_drop/Drag_Events.html
+    简单拖动边界 : drag_and_drop/Simple_Drag_Bounds.html
+    高级拖放 : drag_and_drop/Complex_Drag_and_Drop.html
+    释放事件 : drag_and_drop/Drop_Events.html
+  裁剪:
+    简单裁剪: clipping/Clipping_Regions.html
+    高级裁剪: clipping/Clipping_Function.html
+  组和层:
+    组 : groups_and_layers/Groups.html
+    层 : groups_and_layers/Layering.html
+    更改容器 : groups_and_layers/Change_Containers.html
+  滤镜:
+    RGBA : filters/RGBA.html
+    反色 : filters/Invert.html
+    灰度 : filters/Grayscale.html
+    亮度 : filters/Brighten.html
+    万花筒 : filters/Kaleidoscope.html
+    模糊度 : filters/Blur.html
+    混合滤镜 : filters/Multiple_Filters.html
+  Tweens:
+    线性缓动动画 : tweens/Linear_Easing.html
+    常用缓动函数 : tweens/Common_Easings.html
+    所有缓动函数 : tweens/All_Easings.html
+    Finish回调函数 : tweens/Finish_Event.html
+    所有操作 : tweens/All_Controls.html
+    滤镜动画 : tweens/Tween_Filter.html
+    高级Tweening : tweens/Complex_Tweening.html
+  动画:
+    创建动画 : animations/Create_an_Animation.html
+    平移 : animations/Moving.html
+    旋转  : animations/Rotation.html
+    缩放 : animations/Scaling.html
+    停止动画 : animations/Stop_Animation.html
+  选择器:
+    ID选择器 : selectors/Select_by_id.html
+    类型选择器 : selectors/Select_by_Type.html
+    属性选择器 : selectors/Select_by_Name.html
+  数据及序列化:
+    序列化舞台: data_and_serialization/Serialize_a_Stage.html
+    加载简单舞台 : data_and_serialization/Simple_Load.html
+    加载复杂舞台 : data_and_serialization/Complex_Load.html
+    舞台 Data URL : data_and_serialization/Stage_Data_URL.html
+  性能:
+    管理层 : performance/Layer_Management.html
+    批量绘制 : performance/Batch_Draw.html
+    形状缓存 : performance/Shape_Caching.html
+    动画优化 : performance/Optimize_Animation.html
+    描边优化 : performance/Optimize_Strokes.html
+    形状重绘 : performance/Shape_Redraw.html
+    禁用 Perfect Drawing : performance/Disable_Perfect_Draw.html
+    Listening Flash: performance/Listening_False.html
+    防止内存泄漏 : performance/Avoid_Memory_Leaks.html
+    性能优化指南 : performance/All_Performance_Tips.html
+  Demos:
+    Free Drawing : sandbox/Free_Drawing.html
+    Zoom Layer On hover : sandbox/Zoom_Layer_On_hover.html
+    Responsive Canvas Stage: sandbox/Responsive_Canvas.html
+    Relative Zoom: sandbox/Zooming_Relative_To_Pointer.html
+    Wheel of Fortune : sandbox/Wheel_of_Fortune.html
+    Quantum Squiggle : sandbox/Quantum_Squiggle.html
+    20000 Nodes : sandbox/20000_Nodes.html
+    Elastic Stars : sandbox/Elastic_Stars.html
+    Shape Tango : sandbox/Shape_Tango.html
+    Multi-touch Scale Shape : sandbox/Multi-touch_Scale_Shape.html
+    Multi-touch Scale Stage : sandbox/Multi-touch_Scale_Stage.html
+    Interactive Building Map : sandbox/Interactive_Building_Map.html
+    Modify Curves with Anchor Points : sandbox/Modify_Curves_with_Anchor_Points.html
+    Drag and Drop Stress Test : sandbox/Drag_and_Drop_Stress_Test.html
+    Animals on the Beach Game : sandbox/Animals_on_the_Beach_Game.html
+    Animation Stress Test : sandbox/Animation_Stress_Test.html
+    10000 Shapes with Tooltips : sandbox/10000_Shapes_with_Tooltip.html
+    Modify Shape Color on Click : sandbox/Modify_Shape_Color_on_Click.html
+    Physics Simulator : sandbox/Physics_Simulator.html
+    Expand Images on Hover : sandbox/Expand_Images_on_Hover.html
+    Planets Image Map : sandbox/Planets_Image_Map.html
+    Image Resize : sandbox/Image_Resize.html
+    Shape Tooltips : sandbox/Shape_Tooltips.html
+    Star Spinner : sandbox/Star_Spinner.html
+    Drag and Drop Multiple Shapes : sandbox/Drag_and_Drop_Multiple_Shapes.html
+    Image Border Highlighting : sandbox/Image_Border_Highlighting.html
+
+google_analytics: UA-54202824-2
+fb_admins:
+swiftype_key: rRaQRFqx1DcWDDysdpg_
+twitter: lavrton
+github: konvajs/konva
