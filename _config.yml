@@ -15,7 +15,8 @@ permalink: news/:year/:month/:day/:title/
 tag_dir: tags
 archive_dir: news
 category_dir: categories
-code_dir: downloads/code
+#code_dir: downloads/code
+skip_render: downloads/code/**
 
 # Directory
 source_dir: source
