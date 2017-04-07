@@ -9,7 +9,7 @@ language: en cn
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://www.konvajs.com
+url: http://www.konvajs.com
 root: /
 permalink: news/:year/:month/:day/:title/
 tag_dir: tags
