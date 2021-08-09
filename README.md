@@ -1,7 +1,7 @@
 欢迎查看Konva中文文档,这份文档会帮助你快速使用Konva.  
 如果你在使用中发现问题和建议,请反馈给我们    
 
-[中文网站 www.konvajs.com](https://www.konvajs.com)
+[中文网站 konvajs-doc.bluehymn.com](https://konvajs-doc.bluehymn.com)
 
 # 什么是Konva?
 
